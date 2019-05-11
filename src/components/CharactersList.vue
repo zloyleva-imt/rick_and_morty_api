@@ -1,36 +1,43 @@
 <template>
   <section class="Home__ShowcaseWrapper">
     <div class="Home__ShowcaseInner">
-      <article v-for="character in charasterArray" class="CharacterCard__Wrapper">
+      <article
+        v-for="character in charasterArray"
+        :key="character.id"
+        class="CharacterCard__Wrapper"
+      >
         <div class="CharacterCard__ImgWrapper">
           <div class="card-image">
-            <img src="https://rickandmortyapi.com/api/character/avatar/36.jpeg" alt="Beta-Seven">
+            <img :src="character.image" alt="Beta-Seven">
           </div>
           <div class="CharacterCard__Title">
-            <h2 class="CharacterCard__Name">Beta-Seven</h2>
-            <p class="CharacterCard__Description">id: 36 - created 2 years ago</p>
+            <h2 class="CharacterCard__Name">{{ character.name }}</h2>
+            <p class="CharacterCard__Description">id: {{ character.id }} - created 2 years ago</p>
           </div>
         </div>
         <div class="CharacterCard__InfoWrapper">
           <div class="CharacterCard__TextWrapper">
             <span>STATUS</span>
-            <p>Alive</p>
+            <p>{{ character.status }}</p>
           </div>
           <div class="CharacterCard__TextWrapper">
             <span>SPECIES</span>
-            <p>Alien, Hivemind</p>
+            <p>
+              {{ character.species }}
+              <span v-if="character.type">, {{ character.type }}</span>
+            </p>
           </div>
           <div class="CharacterCard__TextWrapper">
             <span>GENDER</span>
-            <p>unknown</p>
+            <p>{{ character.gender }}</p>
           </div>
           <div class="CharacterCard__TextWrapper">
             <span>ORIGIN</span>
-            <p>unknown</p>
+            <p>{{ character.origin.name }}</p>
           </div>
           <div class="CharacterCard__TextWrapper">
             <span>LAST LOCATION</span>
-            <p>unknown</p>
+            <p>{{ character.location.name }}</p>
           </div>
         </div>
       </article>
@@ -139,13 +146,15 @@ section.Home__ShowcaseWrapper {
             font-weight: 400;
             color: rgb(158, 158, 158);
           }
-          p {
+          p,
+          p span {
             width: 100%;
             font-size: 0.9rem;
             font-weight: 200;
             text-align: right;
             padding: 0px;
             margin: 0px;
+            color: rgb(255, 152, 0);
           }
         }
       }

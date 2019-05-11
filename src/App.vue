@@ -21,12 +21,15 @@ export default {
   data() {
     return {
       charasterArray: [],
+      info: {},
       getCharastersUrl: "https://rickandmortyapi.com/api/character/"
     };
   },
   mounted() {
     console.log("mounted");
-    this.axios.get(this.getCharastersUrl).then(res => console.log(res));
+    this.axios.get(this.getCharastersUrl).then(res => {
+      this.charasterArray = res.data.results;
+    });
   }
 };
 </script>
