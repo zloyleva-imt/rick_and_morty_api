@@ -47,8 +47,8 @@ header {
           border-width: initial;
           border-style: none;
           border-color: initial;
-		  border-image: initial;
-		  text-decoration: none;
+          border-image: initial;
+          text-decoration: none;
           &.active {
             color: rgb(255, 152, 0);
           }

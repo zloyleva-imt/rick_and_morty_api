@@ -10,7 +10,7 @@
 import Navigation from './components/Navigation.vue';
 import Teaser from './components/Teaser.vue';
 import CharactersList from './components/CharactersList.vue';
-import style from './asserts/style.css';
+import './asserts/style.css';
 export default {
   name: 'app',
   components: {
