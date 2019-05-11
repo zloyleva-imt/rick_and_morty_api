@@ -1,24 +1,35 @@
 <template>
   <div id="app">
     <Navigation></Navigation>
-	<Teaser></Teaser>
-	<CharactersList></CharactersList>
+    <Teaser></Teaser>
+    <CharactersList :charasterArray="charasterArray"></CharactersList>
   </div>
 </template>
 
 <script>
-import Navigation from './components/Navigation.vue';
-import Teaser from './components/Teaser.vue';
-import CharactersList from './components/CharactersList.vue';
-import './asserts/style.css';
+import Navigation from "./components/Navigation.vue";
+import Teaser from "./components/Teaser.vue";
+import CharactersList from "./components/CharactersList.vue";
+import "./asserts/style.css";
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    Navigation, Teaser, CharactersList
+    Navigation,
+    Teaser,
+    CharactersList
+  },
+  data() {
+    return {
+      charasterArray: [],
+      getCharastersUrl: "https://rickandmortyapi.com/api/character/"
+    };
+  },
+  mounted() {
+    console.log("mounted");
+    this.axios.get(this.getCharastersUrl).then(res => console.log(res));
   }
-}
+};
 </script>
 
 <style>
-
 </style>

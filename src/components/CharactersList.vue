@@ -1,7 +1,7 @@
 <template>
   <section class="Home__ShowcaseWrapper">
     <div class="Home__ShowcaseInner">
-      <article class="CharacterCard__Wrapper">
+      <article v-for="character in charasterArray" class="CharacterCard__Wrapper">
         <div class="CharacterCard__ImgWrapper">
           <div class="card-image">
             <img src="https://rickandmortyapi.com/api/character/avatar/36.jpeg" alt="Beta-Seven">
@@ -38,7 +38,14 @@
   </section>
 </template>
 <script>
-export default {};
+export default {
+  props: {
+    charasterArray: {
+      type: Array,
+      required: true
+    }
+  }
+};
 </script>
 <style lang="scss">
 section.Home__ShowcaseWrapper {
